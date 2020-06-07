@@ -1,0 +1,10 @@
+
+@media print{
+	* { -webkit-print-color-adjust: exact; }
+	table{border: double ;} 
+	table tr td, table tr th{background-color: lightblue !important;border: solid thin red;}
+	table .T1{background-color: #b3ffb3 !important}
+	table .T2{background-color: #ffb3ff !important}
+	table .T3{background-color: #add8e6 !important}
+	table .franco{background-color: #ffff33 !important;}
+}

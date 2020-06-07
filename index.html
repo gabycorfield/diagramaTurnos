@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diagrama de Turnos</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
+	
+	
+	<!-- estilo-->
+	<link rel="stylesheet" type="text/css" href="style.css" >
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--	<script src="jquery-3.3.1.js"></script>-->
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!--<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+	<script type="text/javascript" src="script.js"></script>
+ 	<meta charset="utf-8">
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top  ">
+	  <div class="container-fluid ">
+	    <button type="button" class="btn btn-info btn-sm" id="btnPersonal">
+		  Personal
+		</button>
+		<button type="button" class="btn btn-info btn-sm" id="btnDiagrama">
+		  Diagrama
+		</button>
+		<button type="button" class="btn btn-info btn-sm" id="btnTurnos">
+		  Turnos
+		</button>
+	  </div>
+	</nav>
+	<div class="container-fluid">
+		<div id="contenido" class="container container-fluid col-sm-12 col-md-12 col-lg-12 ">
+			<div id="personal" class="container-fluid seccion oculto  col-md-12 " >
+				<div class="col-md-7 titulo text-center"><h3>PERSONAL</h3></div>
+				<div class="  col-md-7 ">
+					
+					<br>
+					<div id="tablaPersonal" class="col-md-12  table-responsive"></div>
+					<div class="col-md-6 noImprimir">
+						<button type="button" class="btn btn-info btn-sm" id="btnImpPersonal">
+					  		Imprimir Personal
+						</button>
+					</div>
+					<div class="col-md-6 noImprimir">
+						<select id="filtroPersonal" class="">
+							<option value=''>Todos</option>
+							<option value='true' selected>Activos</option>
+							<option value="false">Inactivos</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col-md-5 container-fluid float-right noImprimir bg-success">
+					<div id='formPersonal' class=" col-md-12 ">
+						<h4>Datos Personales<span id="accion"></span></h4>
+						<form class="form-horizontal  col-md-12" >
+							<input type="hidden" id="idPersona" name="" >
+							<input type="hidden" id="accionPersonal" name="">
+							<div class="row">
+								<div class="form-group form-group-sm col-sm-6">
+								    <label for="apellido" class=" control-label">Apellido</label>
+								    <div class="col-sm-12">
+								      <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+								    </div>
+								</div>
+							    <div class="form-group form-group-sm col-sm-6">
+							    	<label for="nombre" class=" control-label">Nombre</label>
+							    	<div class="col-sm-12">
+							      		<input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+							    	</div>
+							    </div>
+							</div>
+						  	<div class="row">
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="fechaNac" class=" control-label ">Fecha de Nacimiento</label>
+							    <div class="col-sm-12">
+							      <input type="date" class="form-control" id="fechaNac" placeholder="dd/mm/aa" required>
+							    </div>
+							  </div>
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="dni" class=" control-label ">DNI</label>
+							    <div class="col-sm-12">
+							      <input type="text" class="form-control" id="dni" placeholder="DNI" required>
+							    </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="direccion" class=" control-label ">Direcci&oacute;n</label>
+							    <div class="col-sm-12">
+							      <input type="text" class="form-control" id="direccion" placeholder="Direcci&oacute;n" required>
+							    </div>
+							  </div>
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="telefono" class=" control-label ">Tel&eacute;fono</label>
+							    <div class="col-sm-12">
+							      <input type="text" class="form-control" id="telefono" placeholder="Tel&eacute;fono" required>
+							    </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="email" class=" control-label ">e-mail</label>
+							    <div class="col-sm-12">
+							      <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+							    </div>
+							  </div>
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="civil" class=" control-label ">Estado Civil</label>
+							    <div class="col-sm-12">
+							    	<select class="form-control" id="civil" required>
+							    		<option selected disabled value="">Seleccionar</option>
+							    		<option value='Soltero'>Soltero</option>
+							    		<option value='Casado'>Casado</option>
+							    		<option value='Viudo'>Viudo</option>
+							    		<option value="Divorciado">Divorciado</option>
+							    		<option value="Conviviente">Conviviente</option>
+							    	</select>
+							    </div>
+							  </div>
+							</div>
+							<hr>
+							<div class="row">
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="legajo" class=" control-label ">N°Legajo</label>
+							    <div class="col-sm-12">
+							      <input type="text" class="form-control" id="legajo" placeholder="N°Legajo" required>
+							    </div>
+							  </div>
+							  <div class="form-group form-group-sm col-sm-6 has-feedback">
+							    <label for="ingreso" class=" control-label ">Fecha de Ingreso</label>
+							    <div class="col-sm-12">
+							      <input type="date" class="form-control" id="ingreso" placeholder="dd/mm/aa" required>
+							    </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="form-group form-group-sm col-sm-6">
+							    <label for="funcion" class=" control-label ">Funci&oacute;n laboral</label>
+							    <div class="col-sm-12">
+							      <select class="form-control" id="funcion" required></select>
+							    </div>
+							  </div>
+							  <div class="form-group form-group-sm col-sm-6">
+							  	<div class="checkbox">
+								  <label>
+								    <input type="checkbox" id="activo" value=false class="input-sm">Activo
+								  </label>
+								</div>
+							  </div>
+							</div>
+						</form>
+				      	<div>
+					        <button type="button" class="btn btn-success" id="btnNewPersonas">Nuevo</button>
+					        <button type="button" class="btn btn-warning" id="btnEditPersonas">Editar</button>
+					        <div class="pull-right"> 
+						        <button type="button" class="btn btn-default" id="btnCancelPersonas">Cancelar</button>
+						        <button type="button" class="btn btn-info " id="submitPersonas">Guardar</button> 
+						    </div>	
+						    <div> <br></div>
+				      	</div>
+					</div>
+				        
+				</div>
+			</div>
+
+			<div id="diagrama" class="seccion oculto">
+				<div class="col-md-12 titulo text-center"><h3>DIAGRAMA</h3></div>
+				<div class="form-group col-sm-10 noImprimir">
+					    <label class="col-sm-2 control-label text-left titulo" for="selectMes">Seleccionar</label>
+					    <div >
+					    	<select id="selectMes"></select>
+					    	<select id='selectAnio'></select>			      
+					    </div>
+				</div>
+				<div id="diagramaT"></div>
+				<button type="button" class="btn btn-info btn-sm noImprimir" id="btnImpDiagrama">
+			 	 	Imprimir Diagrama
+				</button>
+			</div>
+
+			<div id="turnos" class="seccion oculto container">
+				<div class="col-md-12 titulo text-center"><h3>TURNOS</h3></div>
+				<div id="cargaTurnos">
+					<div class="">
+					    	<select id="selectMesT"></select>
+					    	<select id='selectAnioT'></select>			      
+					</div>
+					<div class='titulo' data-placement="bottom" title="Agregar o borrar antes de editar los turnos, o guardar previamente los cambios realizados en el diagrama">Feriados
+						<input type="date" id="feriados" name="" placeholder="dd/mm/aaaa">
+						<button class="btn btn-sm" id="btnAddFeriado">Agregar</button>
+						<button class="btn btn-sm" id="btnDelFeriado">Eliminar</button>
+					</div>
+					
+				</div>
+				<div id="headTurnos"><h4 class='text-center titulo'>Diagrama de horarios y francos mes de <span></span></h4></div>
+				<div id="verTurnos"></div>
+				<div>
+					<button class="btn btn-info" id="btnAddTurnos"><span class="glyphicon glyphicon-ok"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
